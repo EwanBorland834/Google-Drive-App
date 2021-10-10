@@ -13,6 +13,7 @@ export class GoogleDriveService {
     constructor(private http: HttpClient) {}
 
     getFiles(): Observable<any> {
+        console.log('GET  /files');
         return this.http.get('assets/files.json');
     }
 }

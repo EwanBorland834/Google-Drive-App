@@ -1,0 +1,13 @@
+mat-form-field {
+    width: 100%;
+}
+
+div.buttons {
+    margin-left: auto;
+    margin-right: 0px;
+    width: fit-content;
+}
+
+button {
+    margin-left: 5px;
+}
