@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatListOption } from '@angular/material/list';
+import { DriveFile } from '../models/driveFile';
+import { GoogleDriveService } from 'src/app/models/googleDriveService';
 
 @Component({
   selector: 'app-home',
@@ -8,20 +9,23 @@ import { MatListOption } from '@angular/material/list';
 })
 export class HomeComponent implements OnInit {
 
-  public files = ['file1', 'file2', 'file3'];
-  public selectedFiles: any[] = [];
+  public files: DriveFile[] = [];
 
-  constructor() { }
+  public selectedFiles: DriveFile[] = [];
+
+  constructor(private service: GoogleDriveService) { }
 
   ngOnInit(): void {
+    this.service.getFiles().subscribe(x => {
+      this.files = x;
+    })
   }
 
   public addComment() {
-    console.log('Comment on', this.selectedFiles);
+    console.log('Comment on', this.selectedFiles.map(f => f.fileName));
   }
 
   public delete() {
-    console.log('Delete', this.selectedFiles);
+    console.log('Delete', this.selectedFiles.map(f => f.fileName));
   }
-
 }
