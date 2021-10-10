@@ -1,0 +1,21 @@
+<div class="container">
+    <mat-toolbar>
+        <span>My Application</span>
+        <div class="buttons">
+            <button mat-raised-button color="accent"
+                (click)="addComment()">
+                Comment
+            </button>
+            <button mat-raised-button color="warn"
+                (click)="delete()">
+                Delete
+            </button>
+        </div>
+    </mat-toolbar>
+
+    <mat-selection-list #fileList [(ngModel)]="selectedFiles">
+        <mat-list-option *ngFor="let file of files" [value]="file">
+            {{ file }}
+        </mat-list-option>
+    </mat-selection-list>
+</div>
