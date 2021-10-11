@@ -24,21 +24,22 @@ export class HomeComponent implements OnInit {
   }
 
   public addComment() {
-    console.log('Comment on', this.selectedFiles.map(f => f.fileName));
+    this.selectedFiles.reverse().forEach(f => {
+      const dialogRef = this.dialog.open(AddCommentComponent, {
+        width: '500px',
+        data: { filename: f.fileName }
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('POST  /files/fileId/comments fields:', result);
+      });
+    })
 
-    const dialogRef = this.dialog.open(AddCommentComponent, {
-      width: '500px',
-      data: { filename: this.selectedFiles[0].fileName }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('Comment dialog closed');
-      console.log('POST  /files/fileId/comments fields:', result);
-
-    });
   }
 
   public delete() {
-    console.log('Delete', this.selectedFiles.map(f => f.fileName));
+    this.selectedFiles.reverse().forEach(f => {
+      console.log('Delete', f.fileName);
+    });
   }
 }

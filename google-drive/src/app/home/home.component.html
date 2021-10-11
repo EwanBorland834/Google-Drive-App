@@ -3,11 +3,13 @@
         <span>My Google documents</span>
         <div class="buttons">
             <button mat-raised-button color="accent"
-                (click)="addComment()">
+                (click)="addComment()"
+                [disabled]="selectedFiles.length === 0">
                 Comment
             </button>
             <button mat-raised-button color="warn"
-                (click)="delete()">
+                (click)="delete()"
+                [disabled]="selectedFiles.length === 0">
                 Delete
             </button>
         </div>
