@@ -1,0 +1,6 @@
+Make changes actually work -> comments
+Snackbars appear whenever change is applied on server side
+Delete files!
+View comments! This could display in a UI to the side of, or below the main UI!!!!
+Route guards
+Extra feature!

@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.service.getFiles().subscribe(x => {
       this.files = x;
-    })
+    });
   }
 
   public addComment() {

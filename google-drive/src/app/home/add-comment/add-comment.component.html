@@ -7,6 +7,7 @@
 
     <div class="buttons">
         <button mat-flat-button color="warn" (click)="onNoClick()"> Cancel </button>
-        <button mat-flat-button color="primary" [mat-dialog-close]="data.body"> Save </button>
+        <button mat-flat-button color="primary" (click)="onSave()"
+        [mat-dialog-close]="data.body"> Save </button>
     </div>
 </form>

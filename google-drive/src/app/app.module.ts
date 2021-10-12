@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddCommentComponent } from './home/add-comment/add-comment.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import {MatInputModule} from '@angular/material/input';
     HttpClientModule,
     MatDialogModule,
     MatInputModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
