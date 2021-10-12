@@ -21,7 +21,9 @@ export class AddCommentComponent implements OnInit {
 
   onSave() {
     console.log('save', this.data.filename);
-    this.service.addComment(this.data).subscribe(x => console.log(x));
+    this.service.addComment(this.data).subscribe(x => {
+      console.log(x);
+    });
   }
 
   onNoClick() {

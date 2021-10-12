@@ -1,6 +1,6 @@
-Make changes actually work -> comments
-Snackbars appear whenever change is applied on server side
-Delete files!
-View comments! This could display in a UI to the side of, or below the main UI!!!!
-Route guards
+Make changes actually work -> comments || Unfortunately can't do this without a server
+Snackbars appear whenever change is applied on server side || Done for adding comment
+Delete files! || DONE
+View comments! This could display in a UI to the side of, or below the main UI || DONE - needs better styling
+Route guards || DONE (just returns true)
 Extra feature!

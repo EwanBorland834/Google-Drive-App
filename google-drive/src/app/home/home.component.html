@@ -15,9 +15,12 @@
         </div>
     </mat-toolbar>
 
-    <mat-selection-list #fileList [(ngModel)]="selectedFiles">
+    <mat-selection-list #fileList [(ngModel)]="selectedFiles" (selectionChange)="getComments()">
         <mat-list-option *ngFor="let file of files" [value]="file">
             {{ file.fileName }}
         </mat-list-option>
     </mat-selection-list>
+
+    <app-comment-view [comments]="commentsOnSelectedFile"
+    [selectedFileName]="lastSelectedFileName()"></app-comment-view>
 </div>

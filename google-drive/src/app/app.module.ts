@@ -15,12 +15,15 @@ import { AddCommentComponent } from './home/add-comment/add-comment.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CommentViewComponent } from './home/comment-view/comment-view.component';
+import { RouteGuard } from './models/routeGuard';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AddCommentComponent
+    AddCommentComponent,
+    CommentViewComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatInputModule,
     MatSnackBarModule,
   ],
-  providers: [],
+  providers: [RouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

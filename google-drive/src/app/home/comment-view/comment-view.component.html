@@ -1,0 +1,17 @@
+<div class="commentViewContainer">
+    <div *ngIf="selectedFileName && comments.length > 0">
+        <h3 >Comments on {{ selectedFileName }}: </h3>
+    </div>
+    <div *ngIf="selectedFileName && comments.length === 0">
+        <h3> {{ selectedFileName }} has no comments yet</h3>
+    </div>
+    <div *ngIf="!selectedFileName">
+        <h3> Select a file to see its comments </h3>
+    </div>
+    
+    <mat-list>
+        <mat-list-item *ngFor="let comment of comments">
+            {{ comment.body }}
+        </mat-list-item>
+    </mat-list>
+</div>
