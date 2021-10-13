@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  public addComment() {
+  public addComment(): void {
     this.selectedFiles.reverse().forEach(f => {
       const dialogRef = this.dialog.open(AddCommentComponent, {
         width: '500px',
@@ -38,17 +38,15 @@ export class HomeComponent implements OnInit {
       });
   
       dialogRef.afterClosed().subscribe(result => {
-        console.log('POST  /files/fileId/comments fields:', result);
+        // console.log('POST  /files/fileId/comments fields:', result);
         this.openSnackBar('Comment added to ' + f.fileName, 'OK');
         this.getComments();
       });
-    })
-
+    });
   }
 
-  public delete() {
+  public delete(): void {
     this.selectedFiles.forEach(f => {
-      console.log('Delete', f.fileName);
       this.files.splice(this.files.indexOf(f), 1);
       this.service.deleteFile(f).subscribe(() =>
         this.openSnackBar(f.fileName + ' deleted', 'OK'));
@@ -57,7 +55,7 @@ export class HomeComponent implements OnInit {
     this.getComments();
   }
 
-  public getComments() {
+  public getComments(): void {
     if (this.selectedFiles.length > 0) {
       this.service.getComments(this.mostRecentlySelectedFile.fileName).subscribe(
         comments => {this.commentsOnSelectedFile = comments;}
@@ -81,10 +79,9 @@ export class HomeComponent implements OnInit {
     } else {
       this.mostRecentlySelectedFile = this.selectedFiles[0];
     }
-    console.log('Last selected: ', this.mostRecentlySelectedFile);
   }
 
-  private openSnackBar(message: string, action: string) {
+  private openSnackBar(message: string, action: string): void {
     this.snackBar.open(message, action, {duration: 1500});
   }
 }

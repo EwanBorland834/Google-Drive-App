@@ -15,18 +15,15 @@ export class AddCommentComponent implements OnInit {
     private service: GoogleDriveService,
     @Inject(MAT_DIALOG_DATA) public data: CommentData) { }
 
-  ngOnInit(): void {
-    console.log(this.data)
-  }
+  ngOnInit(): void {}
 
-  onSave() {
-    console.log('save', this.data.filename);
-    this.service.addComment(this.data).subscribe(x => {
-      console.log(x);
+  onSave(): void {
+    this.service.addComment(this.data).subscribe(_x => {
+      // console.log(x);
     });
   }
 
-  onNoClick() {
+  onNoClick(): void {
     this.dialogRef.close();
   }
 }
