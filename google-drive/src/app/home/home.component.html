@@ -1,5 +1,5 @@
 <div class="container">
-    <mat-toolbar>
+    <mat-toolbar color="primary">
         <span>My Google documents</span>
         <div class="buttons">
             <button mat-raised-button color="accent"
@@ -15,8 +15,8 @@
         </div>
     </mat-toolbar>
 
-    <mat-selection-list #fileList [(ngModel)]="selectedFiles" (selectionChange)="getComments()">
-        <mat-list-option *ngFor="let file of files" [value]="file">
+    <mat-selection-list #fileList [(ngModel)]="selectedFiles">
+        <mat-list-option *ngFor="let file of files" [value]="file" (click)="setLastSelected(file); getComments()">
             {{ file.fileName }}
         </mat-list-option>
     </mat-selection-list>

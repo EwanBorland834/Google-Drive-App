@@ -5,3 +5,17 @@ html, body {
     /* background-color: black; */
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-toolbar.mat-primary {
+    background: rgb(195, 255, 247);
+    color: black;
+}
+
+.mat-list-base {
+    padding-top: 0px !important;
+}
+
+mat-selection-list {
+    max-height: 40vh;
+    overflow: auto;
+}

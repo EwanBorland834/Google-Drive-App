@@ -10,7 +10,7 @@ export class RouteGuard implements CanActivate {
     
     constructor(private router: Router) {}
     
-    canActivate(route: ActivatedRouteSnapshot, state:RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    canActivate(_route: ActivatedRouteSnapshot, _state:RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
         return true;
     }
 }

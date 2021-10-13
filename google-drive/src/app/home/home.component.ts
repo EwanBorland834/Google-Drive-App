@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
 
   public selectedFiles: DriveFile[] = [];
 
+  public mostRecentlySelectedFile: any = null;
+
   public commentsOnSelectedFile: CommentData[] = [];
 
   constructor(public dialog: MatDialog, private service: GoogleDriveService,
@@ -51,11 +53,13 @@ export class HomeComponent implements OnInit {
       this.service.deleteFile(f).subscribe(() =>
         this.openSnackBar(f.fileName + ' deleted', 'OK'));
     });
+    this.selectedFiles = [];
+    this.getComments();
   }
 
   public getComments() {
     if (this.selectedFiles.length > 0) {
-      this.service.getComments(this.selectedFiles[0].fileName).subscribe(
+      this.service.getComments(this.mostRecentlySelectedFile.fileName).subscribe(
         comments => {this.commentsOnSelectedFile = comments;}
       );
     } else {
@@ -65,10 +69,19 @@ export class HomeComponent implements OnInit {
 
   public lastSelectedFileName(): string {
     if (this.selectedFiles.length > 0) {
-      return this.selectedFiles[0].fileName;
+      return this.mostRecentlySelectedFile.fileName;
     } else {
       return '';
     }
+  }
+
+  public setLastSelected(file: DriveFile): void {
+    if (this.selectedFiles.includes(file)) {
+      this.mostRecentlySelectedFile = file;
+    } else {
+      this.mostRecentlySelectedFile = this.selectedFiles[0];
+    }
+    console.log('Last selected: ', this.mostRecentlySelectedFile);
   }
 
   private openSnackBar(message: string, action: string) {

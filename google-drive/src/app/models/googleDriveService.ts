@@ -24,7 +24,6 @@ export class GoogleDriveService {
     constructor(private http: HttpClient) {}
 
     getFiles(): Observable<any> {
-        console.log('GET  /files');
         return this.http.get(baseURL + 'files.json');
     }
 
