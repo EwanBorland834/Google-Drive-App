@@ -1,16 +1,18 @@
-<div class="commentViewContainer">
+<mat-toolbar>
+    <!-- <span>Comments</span> -->
     <div *ngIf="selectedFileName && comments.length > 0">
-        <h3 >Comments on {{ selectedFileName }}: </h3>
+        <span>Comments on {{ selectedFileName }}: </span>
     </div>
     <div *ngIf="selectedFileName && comments.length === 0">
-        <h3> {{ selectedFileName }} has no comments yet</h3>
+        <span> {{ selectedFileName }} has no comments yet</span>
     </div>
     <div *ngIf="!selectedFileName">
-        <h3> Select a file to see its comments </h3>
+        <span> Select a file to see its comments </span>
     </div>
-    
+</mat-toolbar>
+<div class="commentViewContainer">
     <mat-list>
-        <mat-list-item *ngFor="let comment of comments">
+        <mat-list-item *ngFor="let comment of comments" [class]="getCommentClass(comment)">
             {{ comment.body }}
         </mat-list-item>
     </mat-list>

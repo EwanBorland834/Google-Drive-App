@@ -72,6 +72,6 @@ export class HomeComponent implements OnInit {
   }
 
   private openSnackBar(message: string, action: string) {
-    this.snackBar.open(message, action);
+    this.snackBar.open(message, action, {duration: 1500});
   }
 }

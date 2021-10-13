@@ -1,5 +1,17 @@
-div.commentViewContainer {
+mat-toolbar {
     margin-top: 20px;
+}
+
+span {
+    font-weight: normal;
+}
+
+.stripe {
+    background-color: #ececec;
+}
+
+div.commentViewContainer {
+    background-color: #f5f5f5;
 }
 
 h3 {

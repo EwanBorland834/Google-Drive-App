@@ -15,4 +15,11 @@ export class CommentViewComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  getCommentClass(comment: CommentData): string {
+    if (this.comments.indexOf(comment) % 2 === 0) {
+      return 'stripe';
+    }
+    return '';
+  }
 }
